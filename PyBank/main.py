@@ -20,17 +20,37 @@ with open(budget_csv, 'r') as csvfile:
     # split the data on commas
     csvreader = csv.reader(csvfile, delimiter=',')
 
+    # read in the header row first
     header = next(csvreader)
 
-    # Prompt the user for what wrestler they would like to search for
-    name_to_check = input("What wrestler do you want to look for? ")
-
+    #check if data is successfully loaded and header appears
+    #print(header)
+  
     # Loop through the data
     for row in csvreader:
 
-        # If the wrestler's name in a row is equal to that which the user input, run the 'print_percentages()' function
-        if name_to_check == row[0]:
-            print_percentages(row)
+        # count all the months in the csv
+        monthcount += 1
+
+        current_month_pandl = int(row[1])
+        net_pandl += current_month_pandl
+
+        if  (monthcount == 1):
+            prev_month_pandl = current_month_pandl
+
+        else:
+            pandl_change = current_month_pandl - prev_month_pandl
+
+            months.append(row[0])
+
+            pandl_changes.append(pandl_change)
+
+            prev_month_pandl = current_month_pandl
+
+    #check if successfully runs
+    print(current_month_pandl)
+
+
 
 
 
