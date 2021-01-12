@@ -8,7 +8,7 @@ election_csv = os.path.join('Resources','election_data.csv')
 # variables for values from election_csv
 total_votes = 0
 cand_names = []
-percent_votes = []
+vote_percents = []
 num_votes = []
 
 
@@ -35,7 +35,17 @@ with open(election_csv, 'r') as csvfile:
             num_votes.append(1)
 
     # percent votes
-    
+    for votes in num_votes:
+        percent = (votes / total_votes)*100
+        percent = round((percent))
+        percent = "%.3f%%" % percent
+        vote_percents.append(percent)
+
+print(vote_percents)
+
+    # total votes each candidate won
+
+    # winner of the election
 
 
 
