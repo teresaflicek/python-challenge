@@ -54,7 +54,7 @@ with open(budget_csv, 'r') as csvfile:
             # set equal for the next run of the loop
             prev_month_pandl = current_month_pandl
 
-    # average change of profit and losses over the entire period
+# average change of profit and losses over the entire period
     avg_pandl = round(sum(pandl_changes)/len(pandl_changes), 2)
 
 # greatest increase in profits (date and amount)
@@ -87,4 +87,16 @@ Greatest Decrease in Profits: {great_dec_month} (${great_decrease});""")
 
 print(report)
 
+# write the results into a text file
+outputFile = os.path.join('analysis', 'pybank_report.txt')
+
+with open(outputFile, 'w') as text_file:
+    text_file.write(f"""
+    Financial Analysis
+    ----------------------------
+    Total Months: {monthcount}
+    Total: ${net_pandl}
+    Average  Change: ${avg_pandl}
+    Greatest Increase in Profits: {great_inc_month} (${great_increase});
+    Greatest Decrease in Profits: {great_dec_month} (${great_decrease});""")
 
