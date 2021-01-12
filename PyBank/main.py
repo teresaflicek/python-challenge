@@ -54,22 +54,15 @@ with open(budget_csv, 'r') as csvfile:
             # set equal for the next run of the loop
             prev_month_pandl = current_month_pandl
 
-    #check if successfully runs
-    print(current_month_pandl)
+    # average change of profit and losses over the entire period
+    avg_pandl = round(sum(pandl_changes)/len(pandl_changes), 2)
+
+    # greatest increase in profits (date and amount)
+    great_increase = max(pandl_changes)
+    great_index = pandl_changes.index(great_increase)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+    # greatest decrease in profits (date and amount)
 
 
 
@@ -79,10 +72,10 @@ with open(budget_csv, 'r') as csvfile:
 # print report with triple f string
 report = (f"""Financial Analysis
 ----------------------------
-Total Months: 86{monthcount}
-Total: $38382578
-Average  Change: $-2315.12
-Greatest Increase in Profits: Feb-2012 ($1926159)
+Total Months: 86:{monthcount}
+Total: $38382578:{net_pandl}
+Average  Change: $-2315.12: {avg_pandl}
+Greatest Increase in Profits: Feb-2012 ($1926159); {great_index},{great_increase}
 Greatest Decrease in Profits: Sep-2013 ($-2196167)""")
 
 print(report)
