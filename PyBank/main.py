@@ -23,10 +23,10 @@ with open(budget_csv, 'r') as csvfile:
     # read in the header row first
     header = next(csvreader)
 
-    #check if data is successfully loaded and header appears
+    # check if data is successfully loaded and header appears
     #print(header)
   
-    # Loop through the data
+    # loop through the data
     for row in csvreader:
 
         # count all the months in the csv
