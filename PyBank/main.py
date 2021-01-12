@@ -32,19 +32,26 @@ with open(budget_csv, 'r') as csvfile:
         # count all the months in the csv
         monthcount += 1
 
+        # net profit and losses for total in report
         current_month_pandl = int(row[1])
         net_pandl += current_month_pandl
 
+        # if statement to append the variables for months and pandl change each time the for loop runs
         if  (monthcount == 1):
             prev_month_pandl = current_month_pandl
 
         else:
+
+            # calculate the change in profits and losses from the previous month
             pandl_change = current_month_pandl - prev_month_pandl
 
+            # append months to the month counter
             months.append(row[0])
 
+            # append the pandl change from the previous month to the pandl changes counter
             pandl_changes.append(pandl_change)
 
+            # set equal for the next run of the loop
             prev_month_pandl = current_month_pandl
 
     #check if successfully runs
@@ -72,7 +79,7 @@ with open(budget_csv, 'r') as csvfile:
 # print report with triple f string
 report = (f"""Financial Analysis
 ----------------------------
-Total Months: 86
+Total Months: 86{monthcount}
 Total: $38382578
 Average  Change: $-2315.12
 Greatest Increase in Profits: Feb-2012 ($1926159)
