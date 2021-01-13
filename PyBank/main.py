@@ -99,4 +99,3 @@ with open(outputFile, 'w') as text_file:
     Average  Change: ${avg_pandl}
     Greatest Increase in Profits: {great_inc_month} (${great_increase});
     Greatest Decrease in Profits: {great_dec_month} (${great_decrease});""")
-

@@ -11,7 +11,6 @@ cand_names = []
 vote_percents = []
 cand_votes = []
 
-
 # read in the CSV file
 with open(election_csv, 'r') as csvfile:
 
@@ -54,29 +53,12 @@ winner_cand = cand_names[winner_index]
 print("Election Results")
 print("-------------------------")
 print(f"Total Votes: {total_votes}")
+print("-------------------------")
 for i in range(len(cand_names)):
     print(f"{cand_names[i]}: {vote_percents[i]} {cand_votes[i]}")
+print("-------------------------")
 print(f"Winners: {winner_cand}")
-
-
-
-
-
-# print report with triple f string
-# report = (f"""
-
-# Election Results
-# -------------------------
-# Total Votes: 3521001 {total_votes}
-# -------------------------
-# Khan: 63.000% (2218231)
-# Correy: 20.000% (704200)
-# Li: 14.000% (492940)
-# O'Tooley: 3.000% (105630)
-# -------------------------
-# Winner: Khan
-# -------------------------
-# """)
+print("-------------------------")
 
 # write the results into a text file
 outputFile = os.path.join('analysis', 'pypoll_report.txt')
@@ -85,6 +67,9 @@ with open(outputFile, 'w') as text_file:
     text_file.write("Election Results\n")
     text_file.write("-------------------------\n")
     text_file.write(f"Total Votes: {total_votes}\n")
+    text_file.write("-------------------------\n")
     for i in range(len(cand_names)):
         text_file.write(f"{cand_names[i]}: {vote_percents[i]} {cand_votes[i]}\n")
+    text_file.write("-------------------------\n")
     text_file.write(f"Winners: {winner_cand}\n")
+    text_file.write("-------------------------\n")
