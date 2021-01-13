@@ -30,9 +30,12 @@ with open(election_csv, 'r') as csvfile:
         total_votes += 1
 
         #if statement to add the number of votes to candidates vote totals
-        if (total_votes == 1):
+        if cand_names.count(row[2]) == 0:
             cand_names.append(row[2])
             cand_votes.append(1)
+
+        else:
+            cand_votes[cand_names.index(row[2])] += 1
 
     # percent of votes comparable to total for each candidate
     for votes in cand_votes:
@@ -55,7 +58,7 @@ print("-------------------------")
 print(f"Total Votes: {total_votes}")
 print("-------------------------")
 for i in range(len(cand_names)):
-    print(f"{cand_names[i]}: {vote_percents[i]} {cand_votes[i]}")
+    print(f"{cand_names[i]}: {(vote_percents[i]):.3f}% {cand_votes[i]}")
 print("-------------------------")
 print(f"Winners: {winner_cand}")
 print("-------------------------")
