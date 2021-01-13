@@ -30,6 +30,7 @@ with open(election_csv, 'r') as csvfile:
         # count all the votes in the csv
         total_votes += 1
 
+        #if statement to add the number of votes to candidates vote totals
         if (total_votes == 1):
             cand_names.append(row[2])
             cand_votes.append(1)
@@ -38,7 +39,6 @@ with open(election_csv, 'r') as csvfile:
     for votes in cand_votes:
         percent = (votes / total_votes)*100
         percent = round((percent))
-        percent = "%.3f%%" % percent
         vote_percents.append(percent)
 
 # winner of the election
