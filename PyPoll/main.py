@@ -72,7 +72,7 @@ with open(outputFile, 'w') as text_file:
     text_file.write(f"Total Votes: {total_votes}\n")
     text_file.write("-------------------------\n")
     for i in range(len(cand_names)):
-        text_file.write(f"{cand_names[i]}: {vote_percents[i]} {cand_votes[i]}\n")
+        text_file.write(f"{cand_names[i]}: {(vote_percents[i]):.3f}% {cand_votes[i]}\n")
     text_file.write("-------------------------\n")
     text_file.write(f"Winners: {winner_cand}\n")
     text_file.write("-------------------------\n")
