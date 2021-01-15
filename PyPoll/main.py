@@ -19,9 +19,6 @@ with open(election_csv, 'r') as csvfile:
 
     # read in the header row first
     header = next(csvreader)
-
-    #check if data is successfully loaded and header appears
-    #print(header)
   
     # loop through the data
     for row in csvreader:
